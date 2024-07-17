@@ -4,7 +4,23 @@
     cmds:
       - pip install -r python-requirements.txt
 
-- name: test_regression
+- name: riscv_arithmetic_basic_test
+  rule: raw_bash
+  rule_args:
+    cmds:
+      - "cd dv/uvm/core_ibex && make SIMULATOR=questa TEST=riscv_arithmetic_basic_test ITERATIONS=1 || (RETCODE=$? && find out -type f -name '*.log' | xargs bash -c 'for arg do echo === LOG FILE $arg ===; cat $arg; done' && exit $RETCODE)"
+    deps:
+      - pip_install_requirements
+
+- name: riscv_rand_instr_test
+  rule: raw_bash
+  rule_args:
+    cmds:
+      - "cd dv/uvm/core_ibex && make SIMULATOR=questa TEST=riscv_rand_instr_test ITERATIONS=1 || (RETCODE=$? && find out -type f -name '*.log' | xargs bash -c 'for arg do echo === LOG FILE $arg ===; cat $arg; done' && exit $RETCODE)"
+    deps:
+      - pip_install_requirements
+
+- name: riscv_machine_mode_rand_test
   rule: raw_bash
   rule_args:
     cmds:
