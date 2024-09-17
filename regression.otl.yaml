@@ -1,0 +1,13 @@
+- name: pip_install_requirements
+  rule: raw_bash_build
+  rule_args:
+    cmds:
+      - pip3 install -r python-requirements.txt
+
+- name: test_regression
+  rule: raw_bash
+  rule_args:
+    cmds:
+      - "cd dv/uvm/core_ibex && make SIMULATOR=vcs TEST=riscv_machine_mode_rand_test ITERATIONS=1 || (RETCODE=$? && find out -type f -name '*.log' | xargs bash -c 'for arg do echo === LOG FILE $arg ===; cat $arg; done' && exit $RETCODE)"
+    deps:
+      - pip_install_requirements
