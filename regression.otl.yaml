@@ -8,6 +8,6 @@
   rule: raw_bash
   rule_args:
     cmds:
-      - "cd dv/uvm/core_ibex && make SIMULATOR=vcs TEST=riscv_jump_stress_test ITERATIONS=1 || (RETCODE=$? && mv /tmp/code/dv/uvm/core_ibex/out/run/tests /tmp/artifacts && exit $RETCODE)"
+      - "./run_regression.sh"
     deps:
       - pip_install_requirements
