@@ -1169,7 +1169,9 @@ module ibex_top import ibex_pkg::*; #(
 
         if (data_rvalid_i) begin
           if (i != MaxOutstandingDSideAccesses - 1) begin
-            pending_dside_accesses_shifted[i] = pending_dside_accesses_q[i];
+            pending_dside_accesses_shifted[i] = pending_dside_accesses_q[i + 1];
+          end else begin
+            pending_dside_accesses_shifted[i] = '0;
           end
         end
       end
