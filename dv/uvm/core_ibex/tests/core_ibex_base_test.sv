@@ -66,7 +66,7 @@ class core_ibex_base_test extends uvm_test;
 
     // Construct the right ISA string for the cosimulator by looking at top-level testbench
     // parameters.
-    isa = {"rv32", RV32E ? "e" : "i"};
+    isa = {"rv32", RV32E ? "i" : "e"};
     if (RV32M != RV32MNone) isa = {isa, "m"};
     isa = {isa, "c"};
     case (RV32B)
