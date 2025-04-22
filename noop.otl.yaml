@@ -1,0 +1,5 @@
+- name: hello_world
+  rule: raw_bash
+  rule_args:
+    cmds:
+      - "echo 'Hello world'"
