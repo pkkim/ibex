@@ -3,11 +3,15 @@
 set -euo pipefail
 
 TEST_NAME=$1
+SEED=$2
+if [[ -z "${SEED}" ]]; then
+    SEED=$RANDOM
+fi
 
 cd dv/uvm/core_ibex
 
 RETCODE=0
-make SIMULATOR=vcs TEST=$TEST_NAME ITERATIONS=1 WAVES=1 || RETCODE=$?
+make SEED=$SEED SIMULATOR=vcs TEST=$TEST_NAME ITERATIONS=1 WAVES=1 || RETCODE=$?
 
 if [[ $RETCODE -ne 0 ]]; then
     mv /tmp/code/dv/uvm/core_ibex/out/run/tests /tmp/artifacts
