@@ -8,3 +8,5 @@ test_lists:
     path: ./known_failing.otl.yaml
   - name: issue_1736
     path: ./issue_1736.otl.yaml
+  - name: issue_1772
+    path: ./issue_1772.otl.yaml
