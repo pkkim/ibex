@@ -4,11 +4,11 @@
   rule_args:
     cmds:
       - "echo seed_test_1"
-      - "echo $SMELT_SEED"
+      - "echo SMELT_SEED: $SMELT_SEED"
 - name: seed_test_2
   rule: raw_bash
   num_seeds: 5
   rule_args:
     cmds:
       - "echo seed_test_2"
-      - "echo $SMELT_SEED"
+      - "echo SMELT_SEED: $SMELT_SEED"
