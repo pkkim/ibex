@@ -4,14 +4,14 @@
     - foo
   rule_args:
     cmds:
-      - "tags: foo"
+      - "echo tags: foo"
 - name: tag_test_2
   rule: raw_bash
   tags:
     - bar
   rule_args:
     cmds:
-      - "tags: bar"
+      - "echo tags: bar"
 - name: tag_test_3
   rule: raw_bash
   tags:
@@ -19,10 +19,10 @@
     - bar
   rule_args:
     cmds:
-      - "tags: foo,bar"
+      - "echo tags: foo,bar"
 - name: tag_test_4
   rule: raw_bash
   tags: []
   rule_args:
     cmds:
-      - "tags: none"
+      - "echo tags: none"
